@@ -1,0 +1,108 @@
+// {{{
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+// }}}
+/* Style the header */
+.header {
+  // {{{
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+} // }}}
+
+/* Style the top navigation bar */ // {{{
+.topnav {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  width: 100%;
+  height: 2.7rem;
+  border: 1px solid black;
+  .fas {
+    margin: 0.7rem;
+    float: right;
+    cursor: pointer;
+  }
+  /* Style the topnav links */
+} // }}}
+.cart {
+  position: absolute;
+  right: -50%;
+  background: #666;
+  width: 50%;
+  height: 100%;
+  border: 1px solid black;
+  transition: 0.5s ease-in;
+}
+/* Create three unequal columns that floats next to each other */
+.row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  /* Left and right column */
+  .side {
+    position: fixed;
+    width: 25%;
+    height: 100vh;
+    overflow-y: scroll;
+    top: 2.7rem;
+    bottom: 0;
+    padding-right: 17px;
+    box-sizing: content-box;
+    border-right: 1px solid black;
+    &:hover a {
+      margin-left: 10px;
+    }
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+    &:hover::-webkit-scrollbar {
+      position: absolute;
+      width: 10px;
+    }
+    a {
+      text-decoration: none;
+      color: #000;
+      display: block;
+      text-align: center;
+      font-size: 1.4rem;
+      padding: 1rem;
+      &:hover {
+        background: #666;
+        color: #fff;
+      }
+    }
+  }
+  /* Middle column */
+  .middle {
+    width: 67%;
+    position: relative;
+    left: 25%;
+    margin: 1rem;
+    z-index: -1;
+    .card {
+      margin: 1rem;
+      padding: 1rem;
+      border: 1px solid black;
+      border-radius: 1rem;
+    }
+  }
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column.side {
+    display: none;
+    width: 0;
+  }
+  .column.middle {
+    width: 100%;
+  }
+}
